@@ -9,7 +9,7 @@ public class Program {
 
         // 2. Position
         Position pos1 = new Position(PositionName.DEV, 1);
-        Position pos2 = new Position(PositionName.Test, 2);
+        Position pos2 = new Position(PositionName.TEST, 2);
         Position pos3 = new Position(PositionName.PM, 3);
 
         // 3. Account
@@ -30,9 +30,8 @@ public class Program {
         GroupAccount groupAcc3 = new GroupAccount(group2, acc3, LocalDate.of(2023, 4, 15));
 
         // 6. TypeQuestion
-        TypeQuestion type1 = new TypeQuestion(1, TypeName.Essay);
-        TypeQuestion type2 = new TypeQuestion(2, TypeName.Multiple_Choice);
-        TypeQuestion type3 = new TypeQuestion(3, TypeName.Essay);
+        TypeQuestion type1 = new TypeQuestion(1, TypeName.ESSAY);
+        TypeQuestion type2 = new TypeQuestion(2, TypeName.MULTIPLE_CHOICE);
 
         // 7. CategoryQuestion
         CategoryQuestion cat1 = new CategoryQuestion(1, "Java");
