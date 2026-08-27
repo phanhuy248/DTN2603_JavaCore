@@ -4,14 +4,12 @@ public class Group {
     private int groupId;
     private String groupName;
     private Account creator;
-    private Account[] accounts;// ds các account trong group này
     private LocalDate createDate;
 
-    public Group(int groupId, String groupName, Account creator, Account[] accounts, LocalDate createDate) {
+    public Group(int groupId, String groupName, Account creator, LocalDate createDate) {
         this.groupId = groupId;
         this.groupName = groupName;
         this.creator = creator;
-        this.accounts = accounts;
         this.createDate = createDate;
     }
 
@@ -37,14 +35,6 @@ public class Group {
 
     public void setCreator(Account creator) {
         this.creator = creator;
-    }
-
-    public Account[] getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(Account[] accounts) {
-        this.accounts = accounts;
     }
 
     public LocalDate getCreateDate() {

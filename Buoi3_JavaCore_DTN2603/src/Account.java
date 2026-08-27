@@ -7,21 +7,19 @@ public class Account {
     private String fullName;
     private Department department;
     private Position position;
-    private Group[] groups; //đs các group account tham gia
     private LocalDate createDate;
 
-    public Account(){
-    }
-
-    public Account(int accountId, String email, String userName, String fullName, Department department, Position position, Group[] groups, LocalDate createDate) {
+    public Account(int accountId, String email, String userName, String fullName, Department department, Position position, LocalDate createDate) {
         this.accountId = accountId;
         this.email = email;
         this.userName = userName;
         this.fullName = fullName;
         this.department = department;
         this.position = position;
-        this.groups = groups;
         this.createDate = createDate;
+    }
+
+    public Account() {
     }
 
     public int getAccountId() {
@@ -70,14 +68,6 @@ public class Account {
 
     public void setPosition(Position position) {
         this.position = position;
-    }
-
-    public Group[] getGroups() {
-        return groups;
-    }
-
-    public void setGroups(Group[] groups) {
-        this.groups = groups;
     }
 
     public LocalDate getCreateDate() {
