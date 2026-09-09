@@ -9,10 +9,10 @@ public class Exercise3 {
 //    Question 2:
 //    Khai báo 1 String có value = "1234567"
 //    Hãy convert String đó ra số int
-    public static void question2() {
-        String value = "1234567";
-        int i = Integer.parseInt(value);
-        System.out.println(i);
+    public static void question2(String s) {
+        Integer v = Integer.parseInt(s);
+        System.out.println(v);
+        System.out.println("Số sau không chuyển có phải số nguyên không: " + (v instanceof Integer));
     }
 //    Question 3:
 //    Khởi tạo 1 số Integer có value là chữ "1234567"

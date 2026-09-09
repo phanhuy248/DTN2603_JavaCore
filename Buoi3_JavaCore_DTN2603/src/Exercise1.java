@@ -11,13 +11,13 @@ public class Exercise1 {
     public static void question1() {
         float account1 = 5240.5f;
         float account2 = 10970.055f;
-        int intAccount1 = (int) account1;
-        int intAccount2 = (int) account2;
-        System.out.println(intAccount1);
-        System.out.println(intAccount2);
+        int intAccount1 = (int) Math.round(account1);
+        int intAccount2 = (int) Math.round(account2);
+        System.out.println("Lương của Account 1: " + intAccount1);
+        System.out.println("Lương của Account 2: " + intAccount2);
     }
 //    Question 2:
-//    Lấy ngẫu nhiên 1 số có 5 chữ số (những số dưới 5 chữ số thì sẽ thêm có số 0 ở đầu cho      đủ 5 chữ số)
+//    Lấy ngẫu nhiên 1 số có 5 chữ số (những số dưới 5 chữ số thì sẽ thêm có số 0 ở đầu cho đủ 5 chữ số)
     public static void question2() {
         Random random = new Random();
         int a = random.nextInt(100000);

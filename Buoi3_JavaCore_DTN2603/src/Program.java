@@ -62,5 +62,7 @@ public class Program {
         System.out.println("Department 1: ID = " + dep1.getDepartmentId() + ", Name = " + dep1.getDepartmentName());
         System.out.println("Department 2: ID = " + dep2.getDepartmentId() + ", Name = " + dep2.getDepartmentName());
         System.out.println("Department 3: ID = " + dep3.getDepartmentId() + ", Name = " + dep3.getDepartmentName());
+
+        Exercise4.question3();
     }
 }

@@ -41,7 +41,7 @@ public class Exercise5 {
 //    VD:
 //    Accounting
 //    Boss of director
-//          Marketing
+//    Marketing
 //    Sale
 //    Waiting room
     public static void q6(Department[] departments) {
