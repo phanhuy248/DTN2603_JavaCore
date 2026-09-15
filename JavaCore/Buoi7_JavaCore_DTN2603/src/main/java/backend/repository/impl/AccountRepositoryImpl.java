@@ -20,7 +20,6 @@ public class AccountRepositoryImpl implements IAccountRepository {
     public List<Account> getAllAccounts() {
         List<Account> list = new ArrayList<>();
 
-        // Sử dụng LEFT JOIN để lấy kèm tên phòng ban và tên chức vụ
         String sql = "SELECT a.account_id, a.email, a.username, a.fullname, a.create_date, " +
                 "       d.department_id, d.department_name, " +
                 "       p.position_id, p.position_name " +
@@ -39,7 +38,7 @@ public class AccountRepositoryImpl implements IAccountRepository {
                 String userName = resultSet.getString("username");
                 String fullName = resultSet.getString("fullname");
 
-                // 1. Xử lý Department
+
                 Department department = null;
                 int depId = resultSet.getInt("department_id");
                 if (!resultSet.wasNull()) {
@@ -47,18 +46,18 @@ public class AccountRepositoryImpl implements IAccountRepository {
                     department = new Department(depId, depName);
                 }
 
-                // 2. Xử lý Position (map sang Enum PositionName)
+
                 Position position = null;
                 int posId = resultSet.getInt("position_id");
                 if (!resultSet.wasNull()) {
                     String posNameRaw = resultSet.getString("position_name");
-                    // Chuẩn hóa chuỗi để khớp với enum (VD: 'Scrum Master' -> 'SCRUM_MASTER')
+
                     String enumKey = posNameRaw.trim().toUpperCase().replace(" ", "_");
                     PositionName positionName = PositionName.valueOf(enumKey);
                     position = new Position(positionName, posId);
                 }
 
-                // 3. Xử lý CreateDate
+
                 java.sql.Date dbDate = resultSet.getDate("create_date");
                 LocalDate createDate = (dbDate != null) ? dbDate.toLocalDate() : null;
 
@@ -95,14 +94,14 @@ public class AccountRepositoryImpl implements IAccountRepository {
                     String userName = resultSet.getString("username");
                     String fullName = resultSet.getString("fullname");
 
-                    // 1. Xử lý Department
+
                     Department department = null;
                     int depId = resultSet.getInt("department_id");
                     if (!resultSet.wasNull()) {
                         department = new Department(depId, resultSet.getString("department_name"));
                     }
 
-                    // 2. Xử lý Position
+
                     Position position = null;
                     int posId = resultSet.getInt("position_id");
                     if (!resultSet.wasNull()) {
@@ -119,7 +118,7 @@ public class AccountRepositoryImpl implements IAccountRepository {
                         position = new Position(positionName, posId);
                     }
 
-                    // 3. Xử lý CreateDate
+
                     java.sql.Date dbDate = resultSet.getDate("create_date");
                     LocalDate createDate = (dbDate != null) ? dbDate.toLocalDate() : null;
 
@@ -179,21 +178,21 @@ public class AccountRepositoryImpl implements IAccountRepository {
             statement.setString(2, account.getUserName());
             statement.setString(3, account.getFullName());
 
-            // Xử lý Department (tránh NullPointerException nếu department null)
+
             if (account.getDepartment() != null) {
                 statement.setInt(4, account.getDepartment().getDepartmentId());
             } else {
                 statement.setNull(4, java.sql.Types.INTEGER);
             }
 
-            // Xử lý Position (tránh NullPointerException nếu position null)
+
             if (account.getPosition() != null) {
                 statement.setInt(5, account.getPosition().getPositionId());
             } else {
                 statement.setNull(5, java.sql.Types.INTEGER);
             }
 
-            // Xử lý LocalDate sang java.sql.Date
+
             if (account.getCreateDate() != null) {
                 statement.setDate(6, java.sql.Date.valueOf(account.getCreateDate()));
             } else {

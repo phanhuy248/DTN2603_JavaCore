@@ -25,9 +25,7 @@ public class Function {
         this.accountController = new AccountController();
     }
 
-    // ==========================================
     // MENU CHÍNH
-    // ==========================================
     public void menu() {
         while (true) {
             System.out.println("\n============= HỆ THỐNG QUẢN LÝ NHÂN SỰ =============");
@@ -51,9 +49,7 @@ public class Function {
         }
     }
 
-    // ==========================================
     // MODULE DEPARTMENT
-    // ==========================================
     private void menuDepartment() {
         while (true) {
             System.out.println("\n--- QUẢN LÝ DEPARTMENT ---");
@@ -122,9 +118,7 @@ public class Function {
         }
     }
 
-    // ==========================================
     // MODULE POSITION
-    // ==========================================
     private void menuPosition() {
         while (true) {
             System.out.println("\n--- QUẢN LÝ POSITION ---");
@@ -204,9 +198,7 @@ public class Function {
         };
     }
 
-    // ==========================================
     // MODULE ACCOUNT
-    // ==========================================
     private void menuAccount() {
         while (true) {
             System.out.println("\n--- QUẢN LÝ ACCOUNT ---");
