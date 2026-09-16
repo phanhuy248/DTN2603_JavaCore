@@ -207,6 +207,26 @@ public class AccountRepositoryImpl implements IAccountRepository {
         }
         return false;
     }
+
+    @Override
+    public boolean checkExist(String email) {
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "SELECT COUNT(*) FROM account WHERE email = ? OR username = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, email);
+            statement.setString(2, email);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                JDBCUtils.closeConnection(connection);
+                return count > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
 
 

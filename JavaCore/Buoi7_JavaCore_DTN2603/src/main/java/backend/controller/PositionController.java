@@ -24,4 +24,8 @@ public class PositionController {
     public boolean suaPositionNameTheoId(int id, String newName) {
         return service.suaPositionNameTheoId(id, newName);
     }
+
+    public Position getPositionById(int positionId) {
+        return service.getPositionById(positionId);
+    }
 }

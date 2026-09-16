@@ -29,4 +29,9 @@ public class PositionServiceImpl implements IPositionService {
     public boolean suaPositionNameTheoId(int id, String newName) {
         return repository.suaPositionNameTheoId(id, newName);
     }
+
+    @Override
+    public Position getPositionById(int positionId) {
+        return repository.getPositionById(positionId);
+    }
 }

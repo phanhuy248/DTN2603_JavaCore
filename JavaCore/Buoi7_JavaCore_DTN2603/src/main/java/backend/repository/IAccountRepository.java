@@ -15,4 +15,6 @@ public interface IAccountRepository {
 
     boolean themAccount(Account account);
 
+
+    boolean checkExist(String email);
 }

@@ -77,4 +77,29 @@ public class PositionRepositoryImpl implements IPositionRepository {
         }
         return false;
     }
+
+    @Override
+    public Position getPositionById(int positionId) {
+        String sql = "SELECT * FROM position WHERE position_id = ?";
+        try (Connection conn = JDBCUtils.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, positionId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int id = rs.getInt("position_id");
+                    String rawName = rs.getString("position_name");
+                    PositionName posName = null;
+                    if (rawName != null && !rawName.trim().isEmpty()) {
+                        try {
+                            posName = PositionName.valueOf(rawName.trim().toUpperCase().replace(" ", "_"));
+                        } catch (IllegalArgumentException ignored) {}
+                    }
+                    return new Position(posName, id);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

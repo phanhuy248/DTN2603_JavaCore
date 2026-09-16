@@ -33,4 +33,8 @@ public class AccountController {
     public boolean themAccount(Account account) {
         return this.IAccountService.themAccount(account);
     }
+
+    public boolean checkExist(String email) {
+        return this.IAccountService.checkExist(email);
+    }
 }

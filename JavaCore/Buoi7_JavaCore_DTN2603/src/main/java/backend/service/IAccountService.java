@@ -15,4 +15,5 @@ public interface IAccountService {
 
     boolean themAccount(Account account);
 
+    boolean checkExist(String email);
 }

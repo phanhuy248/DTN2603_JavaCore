@@ -40,4 +40,9 @@ public class AccountServiceImpl implements IAccountService {
     public boolean themAccount(Account account) {
         return repository.themAccount(account);
     }
+
+    @Override
+    public boolean checkExist(String email) {
+        return repository.checkExist(email);
+    }
 }
